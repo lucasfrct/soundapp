@@ -28,11 +28,11 @@
 			type: "nominal",
 		};
 
-		observer ( "soundapp.buffer.primary", $that.eventCalc );
-		observer ( 'soundapp.buffer.selectPrimary', $that.eventCalc );
-		observer ( "soundapp.buffer.secondary", $that.eventCalc );
-		observer ( "soundapp.buffer.selectSecondary", $that.eventCalc );
-		observer ( "soundapp.buffer.type", $that.eventCalc );
+		observer ( "soundapp.buffer.primary", eventCalc );
+		observer ( 'soundapp.buffer.selectPrimary', eventCalc );
+		observer ( "soundapp.buffer.secondary", eventCalc );
+		observer ( "soundapp.buffer.selectSecondary", eventCalc );
+		observer ( "soundapp.buffer.type", eventCalc );
 
 		function eventCalc ( $value ) {
 			console.log ( "evento calc:" + $value );
