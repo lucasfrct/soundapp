@@ -5,11 +5,13 @@
 	.module ( "soundapp" )
 	.controller ( "soundappController", soundappController );
 
-	function soundappController (  ) {
+	function soundappController ( $scope ) {
 		
-		this.title = "Elétrica";
+		var $that = this;
 		
-		this.data = {
+		$that.title = "Elétrica";
+		
+		$that.data = {
 			volts:[],
 			amperes: [],
 			ohms: [],
@@ -18,7 +20,7 @@
 			KVA: [],
 		};
 
-		this.buffer = {
+		$that.buffer = {
 			primary: 0,
 			secondary: 0,
 			selectPrimary: "V",
@@ -26,7 +28,18 @@
 			type: "nominal",
 		};
 
-		this.verify = function ( $data ) {
+		observer ( "soundapp.buffer.primary", $that.eventCalc );
+		observer ( 'soundapp.buffer.selectPrimary', $that.eventCalc );
+		observer ( "soundapp.buffer.secondary", $that.eventCalc );
+		observer ( "soundapp.buffer.selectSecondary", $that.eventCalc );
+		observer ( "soundapp.buffer.type", $that.eventCalc );
+
+		function eventCalc ( $value ) {
+			console.log ( "evento calc:" + $value );
+			return false;
+		};
+
+		function verify ( $data ) {
 			return  ( 
 				$data.primary > 0 
 				&& $data.primary < 0 
@@ -34,6 +47,16 @@
 				&& $data.secondary > 0 
 				) ? true : false
 		};
+
+		function observer ( $variable, $fn ) {
+			$scope.$watch ( $variable, function ( $newVal, $oldVal ) {
+    			if ( typeof $fn == "function" ) {
+    				$fn ( $newVal, $oldVal );
+    			}
+    			
+  			});
+		};
+
 	};
 
 } ) ( );
