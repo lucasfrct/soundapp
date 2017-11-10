@@ -24,11 +24,16 @@
 			selectPrimary: "V",
 			selectSecondary: "A",
 			type: "nominal",
-		}
+		};
 
 		this.verify = function ( $data ) {
-			return  ( $data.primary >< 0 && $data.secondary >< 0 ) ? true : false
-		}
+			return  ( 
+				$data.primary > 0 
+				&& $data.primary < 0 
+				&& $data.secondary > 0 
+				&& $data.secondary > 0 
+				) ? true : false
+		};
 	};
 
 } ) ( );
