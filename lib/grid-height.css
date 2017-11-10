@@ -180,17 +180,17 @@ aqui contém 21 grades horizontais seguindo a proporção de divisão de 16:9 =>
 }
 
 .line {
-	border: solid 0.1px rgba( 255, 0, 0, 0.5);
+	border: solid 0.1px rgba( 255, 0, 0, 0.3);
 }
 
 .line-dashed {
-    border: dashed 0.1px rgba( 255, 0, 0, 0.5);
+    border: dashed 0.1px rgba( 255, 0, 0, 0.3);
 }
 
 .line-dotted {
-    border: dotted 0.1px rgba( 255, 0, 0, 0.5);
+    border: dotted 0.1px rgba( 255, 0, 0, 0.3);
 }
 
 .line-double {
-    border: double 0.1px rgba( 255, 0, 0, 0.5);
+    border: double 0.1px rgba( 255, 0, 0, 0.3);
 }

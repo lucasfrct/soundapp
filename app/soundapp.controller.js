@@ -6,7 +6,7 @@
 	.controller ( "soundappController", soundappController );
 
 	function soundappController ( ) {
-		this.nome = "Lucas";
+		this.title = "Elétrica";
 	};
 
 } ) ( );
