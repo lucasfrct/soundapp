@@ -1,0 +1,196 @@
+/*
+basiado em tela 16:9 com 12 colunas;
+razão: 16 / 9 = 1,7777
+logo: 12 * 1.777 = 21.3;
+aqui contém 21 grades horizontais seguindo a proporção de divisão de 16:9 => 12:21.3;
+
+*/
+.row-1, .row-2, .row-3, .row-4, .row-5, .row-6, .row-7, .row-8, .row-9, .row-10, .row-11, .row-12, .row-13, .row-14, .row-15, .row-16, .row-17, .row-18, .row-19, .row-20, .row-21 {
+	display: flow-root;
+    margin-top: 0.1px !important;
+    margin-bottom: 0.1px !important;
+}
+
+.row-1 {
+    height: calc( ( 100vh / 21 ) - 1px ) !important;
+}
+
+.row-2 {
+    height: calc( ( 100vh / 21 ) * 2 - 1px ) !important;
+}
+
+.row-3 {
+    height: calc( ( 100vh / 21 ) * 3 - 1px ) !important;
+}
+
+.row-4 {
+    height: calc( ( 100vh / 21 ) * 4 - 1px ) !important;
+}
+
+.row-5 {
+    height: calc( ( 100vh / 21 ) * 5 - 1px ) !important;
+}
+
+.row-6 {
+    height: calc( ( 100vh / 21 ) * 6 - 1px ) !important;
+}
+
+.row-7 {
+    height: calc( ( 100vh / 21 ) * 7 - 1px ) !important;
+}
+
+.row-8 {
+    height: calc( ( 100vh / 21 ) * 8 - 1px ) !important;
+}
+
+.row-9 {
+    height: calc( ( 100vh / 21 ) * 9 - 1px ) !important;
+}
+
+.row-10 {
+    height: calc( ( 100vh / 21 ) * 10 - 1px ) !important;
+}
+
+.row-11 {
+    height: calc( ( 100vh / 21 ) * 11 - 1px ) !important;
+}
+
+.row-12 {
+    height: calc( ( 100vh / 21 ) * 12 - 1px ) !important;
+}
+
+.row-13 {
+    height: calc( ( 100vh / 21 ) * 13 - 1px ) !important;
+}
+
+.row-14 {
+    height: calc( ( 100vh / 21 ) * 14 - 1px ) !important;
+}
+
+.row-15 {
+    height: calc( ( 100vh / 21 ) * 15 - 1px ) !important;
+}
+
+.row-16 {
+    height: calc( ( 100vh / 21 ) * 16 - 1px ) !important;
+}
+
+.row-17 {
+    height: calc( ( 100vh / 21 ) * 17 - 1px ) !important;
+}
+
+.row-18 {
+    height: calc( ( 100vh / 21 ) * 18 - 1px ) !important;
+}
+
+.row-19 {
+    height: calc( ( 100vh / 21 ) * 19 - 1px ) !important;
+}
+
+.row-20 {
+    height: calc( ( 100vh / 21 ) * 20 - 1px ) !important;
+}
+
+.row-21 {
+    height: calc( 100vh - 1px ) !important;
+}
+
+.row-offset-1 {
+    margin-top: calc( ( 100vh / 21 ) - 1px ) !important;
+}
+
+.row-offset-2 {
+    margin-top: calc( ( 100vh / 21 ) * 2 - 1px ) !important;
+}
+
+.row-offset-3 {
+    margin-top: calc( ( 100vh / 21 ) * 3 - 1px ) !important;
+}
+
+.row-offset-4 {
+    margin-top: calc( ( 100vh / 21 ) * 4 - 1px ) !important;
+}
+
+.row-offset-5 {
+    margin-top: calc( ( 100vh / 21 ) * 5 - 1px ) !important;
+}
+
+.row-offset-6 {
+    margin-top: calc( ( 100vh / 21 ) * 6 - 1px ) !important;
+}
+
+.row-offset-7 {
+    margin-top: calc( ( 100vh / 21 ) * 7 - 1px ) !important;
+}
+
+.row-offset-8 {
+    margin-top: calc( ( 100vh / 21 ) * 8 - 1px ) !important;
+}
+
+.row-offset-9 {
+    margin-top: calc( ( 100vh / 21 ) * 9 - 1px ) !important;
+}
+
+.row-offset-10 {
+    margin-top: calc( ( 100vh / 21 ) * 10 - 1px ) !important;
+}
+
+.row-offset-11 {
+    margin-top: calc( ( 100vh / 21 ) * 11 - 1px ) !important;
+}
+
+.row-offset-12 {
+    margin-top: calc( ( 100vh / 21 ) * 12 - 1px ) !important;
+}
+
+.row-offset-13 {
+    margin-top: calc( ( 100vh / 21 ) * 13 - 1px ) !important;
+}
+
+.row-offset-14 {
+    margin-top: calc( ( 100vh / 21 ) * 14 - 1px ) !important;
+}
+
+.row-offset-15 {
+    margin-top: calc( ( 100vh / 21 ) * 15 - 1px ) !important;
+}
+
+.row-offset-16 {
+    margin-top: calc( ( 100vh / 21 ) * 16 - 1px ) !important;
+}
+
+.row-offset-17 {
+    margin-top: calc( ( 100vh / 21 ) * 17 - 1px ) !important;
+}
+
+.row-offset-18 {
+    margin-top: calc( ( 100vh / 21 ) * 18 - 1px ) !important;
+}
+
+.row-offset-19 {
+    margin-top: calc( ( 100vh / 21 ) * 19 - 1px ) !important;
+}
+
+.row-offset-20 {
+    margin-top: calc( ( 100vh / 21 ) * 20 - 1px ) !important;
+}
+
+.row-offset-21 {
+    margin-top: calc( 100vh - 1px ) !important;
+}
+
+.line {
+	border: solid 0.1px rgba( 255, 0, 0, 0.5);
+}
+
+.line-dashed {
+    border: dashed 0.1px rgba( 255, 0, 0, 0.5);
+}
+
+.line-dotted {
+    border: dotted 0.1px rgba( 255, 0, 0, 0.5);
+}
+
+.line-double {
+    border: double 0.1px rgba( 255, 0, 0, 0.5);
+}
