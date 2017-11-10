@@ -9,8 +9,10 @@
 		<script type="text/javascript" src="lib/angular.min.js"></script>
 		<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="lib/canvasjs.min.js"></script>
 		<script type="text/javascript" src="app/soundapp.module.js"></script>
 		<script type="text/javascript" src="app/soundapp.controller.js"></script>
+		<script type="text/javascript" src="app/soundapp.controller.chart.js"></script>
 		<script type="text/javascript" src="vendor/js/soundapp.js"></script>
 	</head>
 	<body ng-controller ="soundappController as soundapp">
@@ -21,13 +23,81 @@
 				</nav>
 			</header>
 			<main class="main col-xs-12 row-17 line">
-				<div class="line-dashed row-offset-1 row-2"></div>
-				<div class="line-dashed row-offset-1 row-4"></div>
-				<div class="line-dashed row-offset-1 row-2"></div>
-				<div class="line-dashed row-offset-1 row-4"></div>
+				<div class="line-dashed row-offset-1 row-2 eletric">
+					<h2>{{ soundapp.title }}</h2>
+				</div>
+				<div class="line-dashed row-offset-1 row-4">
+					
+				<div class="line-dashed col-xs-6 row-4">
+					<input class="col-xs-12 row-3">
+					<select class="col-xs-12 row-1" style="text-align: right;">
+						<option>V</option>
+						<option>I</option>
+						<option>R</option>
+						<option>P</option>
+						<option>KV</option>
+						<option>KVA</option>
+					</select>
+				</div>
+				<div class="line-dashed col-xs-6 row-4">
+					<input class="col-xs-12 row-3">
+					<select class="col-xs-12 row-1" style="text-align: right;">
+						<option>V</option>
+						<option>I</option>
+						<option>R</option>
+						<option>P</option>
+						<option>KV</option>
+						<option>KVA</option>
+					</select>
+				</div>
+
+
+				</div>
+				<div class="line-dashed row-offset-1 row-2">
+					
+					<div class="line-dashed col-xs-4 row-2">
+						<span></span>
+						<input type="radio" name="type">Nominal
+					</div>
+					<div class="line-dashed col-xs-4 row-2">
+						<span></span>
+						<input type="radio" name="type">RMS
+					</div>
+					<div class="line-dashed col-xs-4 row-2">
+						<span></span>
+						<input type="radio" name="type">p-p
+					</div>
+
+				</div>
+				<div class="line-dashed row-offset-1 row-4">
+					
+					<div class="line-dashed col-xs-4 row-2">
+						V: 0000.0000
+					</div>
+					<div class="line-dashed col-xs-4 row-2">
+						I: 0000.0000
+					</div>
+					<div class="line-dashed col-xs-4 row-2">
+						R: 0000.0000
+					</div>
+					<div class="line-dashed col-xs-4 row-2">
+						P: 0000.0000
+					</div>
+					<div class="line-dashed col-xs-4 row-2">
+						KV: 0000.0000
+					</div>
+					<div class="line-dashed col-xs-4 row-2">
+						KVA: 0000.0000
+					</div>
+
+
+				</div>
 			</main>
 			<footer class="footer col-xs-12 row-2 line">
-				
+				<div class="line-dashed col-xs-3 row-2">EL.</div>
+				<div class="line-dashed col-xs-3 row-2">E.A.</div>
+				<div class="line-dashed col-xs-3 row-2">AC.</div>
+				<div class="line-dashed col-xs-3 row-2">CO.</div>
 			</footer>
 		</div>
 	</body>
