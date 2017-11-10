@@ -179,18 +179,31 @@ aqui contém 21 grades horizontais seguindo a proporção de divisão de 16:9 =>
     margin-top: calc( 100vh - 1px ) !important;
 }
 
-.line {
-	border: solid 0.1px rgba( 255, 0, 0, 0.3);
+body .transtion {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    transition-property: top, left, right, bottom, margin, padding, border, box-shadow, height, width, background, font-size;
 }
 
-.line-dashed {
-    border: dashed 0.1px rgba( 255, 0, 0, 0.3);
+body .line, body .line-dashed, body .line-dotted, body .line-double {
+    border-color: rgba( 255, 0, 0, 0.2 );
+    border-width: 0.1px;
 }
 
-.line-dotted {
-    border: dotted 0.1px rgba( 255, 0, 0, 0.3);
+body .line {
+	border-style: solid;
 }
 
-.line-double {
-    border: double 0.1px rgba( 255, 0, 0, 0.3);
+body .line-dashed {
+    border-style: dashed;
+}
+
+body .line-dotted {
+    border-style: dotted;
+}
+
+body .line-double {
+    border-style: double;
 }
