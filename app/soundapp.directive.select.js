@@ -3,38 +3,35 @@
 	
 	angular
 		.module ( "soundapp" )
-		.directive ( "select", [ Select ] );
+		.directive ( "selectList", [ SelectList ] );
 
-	function Select ( ) {
+	function SelectList ( ) {
 		return {
 			restrict: "A",
 			require: 'ngModel',
-			scope: {
-				ngModel: "="
-			},
-			link: linkScope,
-		}
+			link: linkSelect,
+		};
 	};
 
-	function linkScope ( $scope, $element, $attr, $ngModelCtrl ) {
-		
-		// Click uma única vez		
-		$element.one ( "click", clickSelect );
-			
-		function clickSelect ( ) {
-			angular.element( this ).children ( "> li" ).on ( "click", clickitemList );
-			return false;
-		};
+	var $NGMODEL = null;
 
-		function clickitemList ( ) {
-			var $that = angular.element( this );
-			$ngModelCtrl.$setViewValue ( $that.text ( ) );
-			$ngModelCtrl.$render ( );
+	function linkSelect ( $scope, $element, $attr, $ngModelCtrl ) {
+		$NGMODEL = $ngModelCtrl;	
+		$element.one ( "click", clickItemList );
+	};
 
-			$that.parent ( ).prepend ( $that ).off ( "click" );
-			
-			return false;
-		};
-	}
+	function clickItemList ( ) {
+		angular
+			.element( this )
+			.children ( "> li" )
+			.on ( "click", function ( ) {
+				var $that = angular.element( this );
+				$NGMODEL.$setViewValue ( $that.text ( ) );
+				$NGMODEL.$render ( );
+				$that.parent ( ).prepend ( $that ).off ( "click" );
+				return false;
+			} );
+		return false;
+	};
 
 } ) ( );

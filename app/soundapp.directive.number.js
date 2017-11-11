@@ -7,10 +7,10 @@
 
 	function OnlyNumber ( ) {
 		 return {
+		 	restrict: "A",
 	    	require: 'ngModel',
 	        link: onlyNumbers,
 	    };
-
 	};
 
 	function onlyNumbers ( $scope, $element, $attrs, $ngModelCtrl ) {
@@ -23,17 +23,15 @@
 	        if ( $value != $inputValue ) {
 	            $ngModelCtrl.$setViewValue ( $value );
 	            $ngModelCtrl.$render ( );
-	        }
+	        };
 
 	        return $value;
 	    };
 
     };
 
-    
-
     function clearLettrs ( $value = null ) {
-    	return ( $value ) ? $value.replace(/[^\d.-]/g,'') : null;
+    	return ( $value ) ? $value.replace ( /[^\d.-]/g,'' ) : null;
     };
 
 } ) ( );
