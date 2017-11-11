@@ -29,6 +29,7 @@
 		function clickitemList ( ) {
 			var $that = angular.element( this );
 			$ngModelCtrl.$setViewValue ( $that.text ( ) );
+			$ngModelCtrl.$render ( );
 
 			$that.parent ( ).prepend ( $that ).off ( "click" );
 			
