@@ -56,8 +56,7 @@
 			$scope.$watch ( $variable, function ( $newVal, $oldVal ) {
     			if ( typeof $fn == "function" ) {
     				$fn ( $newVal, $oldVal );
-    			}
-    			
+    			};
   			});
 		};
 
