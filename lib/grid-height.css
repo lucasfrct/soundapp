@@ -13,86 +13,107 @@ aqui contém 21 grades horizontais seguindo a proporção de divisão de 16:9 =>
 
 .row-1 {
     height: calc( ( 100vh / 21 ) - 1px ) !important;
+    min-height: 19px;
 }
 
 .row-2 {
     height: calc( ( 100vh / 21 ) * 2 - 1px ) !important;
+    min-height: 39px;
 }
 
 .row-3 {
     height: calc( ( 100vh / 21 ) * 3 - 1px ) !important;
+    min-height: 59px;
 }
 
 .row-4 {
     height: calc( ( 100vh / 21 ) * 4 - 1px ) !important;
+    min-height: 79px;
 }
 
 .row-5 {
     height: calc( ( 100vh / 21 ) * 5 - 1px ) !important;
+    min-height: 99px;
 }
 
 .row-6 {
     height: calc( ( 100vh / 21 ) * 6 - 1px ) !important;
+    min-height: 119px;
 }
 
 .row-7 {
     height: calc( ( 100vh / 21 ) * 7 - 1px ) !important;
+    min-height: 139px;
 }
 
 .row-8 {
     height: calc( ( 100vh / 21 ) * 8 - 1px ) !important;
+    min-height: 159px;
 }
 
 .row-9 {
     height: calc( ( 100vh / 21 ) * 9 - 1px ) !important;
+    min-height: 179px;
 }
 
 .row-10 {
     height: calc( ( 100vh / 21 ) * 10 - 1px ) !important;
+    min-height: 199px;
 }
 
 .row-11 {
     height: calc( ( 100vh / 21 ) * 11 - 1px ) !important;
+    min-height: 219px;
 }
 
 .row-12 {
     height: calc( ( 100vh / 21 ) * 12 - 1px ) !important;
+    min-height: 239px;
 }
 
 .row-13 {
     height: calc( ( 100vh / 21 ) * 13 - 1px ) !important;
+    min-height: 259px;
 }
 
 .row-14 {
     height: calc( ( 100vh / 21 ) * 14 - 1px ) !important;
+    min-height: 279px;
 }
 
 .row-15 {
     height: calc( ( 100vh / 21 ) * 15 - 1px ) !important;
+    min-height: 299px;
 }
 
 .row-16 {
     height: calc( ( 100vh / 21 ) * 16 - 1px ) !important;
+    min-height: 319px;
 }
 
 .row-17 {
     height: calc( ( 100vh / 21 ) * 17 - 1px ) !important;
+    min-height: 339px;
 }
 
 .row-18 {
     height: calc( ( 100vh / 21 ) * 18 - 1px ) !important;
+    min-height: 359px;
 }
 
 .row-19 {
     height: calc( ( 100vh / 21 ) * 19 - 1px ) !important;
+    min-height: 379px;
 }
 
 .row-20 {
     height: calc( ( 100vh / 21 ) * 20 - 1px ) !important;
+    min-height: 399px;
 }
 
 .row-21 {
     height: calc( 100vh - 1px ) !important;
+    min-height: 419px;
 }
 
 .row-offset-1 {
