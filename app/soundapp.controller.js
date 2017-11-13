@@ -35,17 +35,79 @@
 		observer ( "soundapp.buffer.type", eventCalc );
 
 		function eventCalc ( $value ) {
-			console.log ( "controller Observer : " + $value );
+			var $buffer = $that.buffer;
+			var $condition = $buffer.selectPrimary + ":" + $buffer.selectSecondary;
+			$condition = $condition.split ( ':' );
+
+			$that.data.tension = setTencion ( $condition, $buffer.primary, $buffer.secondary );
+			$that.data.amperage = setAmperage ( $condition, $buffer.primary, $buffer.secondary );
+			$that.data.resistance = setResistance ( $condition, $buffer.primary, $buffer.secondary );
+			$that.data.power = setPower ( $condition, $buffer.primary, $buffer.secondary );
+			$that.data.kv = setKv ( $condition, $buffer.primary, $buffer.secondary );
+			$that.data.kva = setKva ( $condition, $buffer.primary, $buffer.secondary );
+
+			console.log ( "controller Observer Condition : " + $condition );
 			return false;
 		};
 
-		function verify ( $data ) {
-			return  ( 
-				$data.primary > 0 
-				&& $data.primary < 0 
-				&& $data.secondary > 0 
-				&& $data.secondary > 0 
-				) ? true : false
+		function setTencion ( $condition, $primary, $secondary ) {
+
+			if ( $condition[ 0 ] == "V" ) {
+				return $primary;
+			} else if ( $condition[ 1 ] == "V") {
+				return $secondary;
+			};
+
+		};
+
+		function setAmperage ( $condition, $primary, $secondary ) {
+
+			if ( $condition[ 0 ] == "A" ) {
+				return $primary;
+			} else if ( $condition[ 1 ] == "A") {
+				return $secondary;
+			};
+
+		};
+
+		function setResistance ( $condition, $primary, $secondary ) {
+
+			if ( $condition[ 0 ] == "R" ) {
+				return $primary;
+			} else if ( $condition[ 1 ] == "R") {
+				return $secondary;
+			};
+
+		};
+
+		function setPower ( $condition, $primary, $secondary ) {
+
+			if ( $condition[ 0 ] == "W" ) {
+				return $primary;
+			} else if ( $condition[ 1 ] == "W") {
+				return $secondary;
+			};
+
+		};
+
+		function setKv ( $condition, $primary, $secondary ) {
+
+			if ( $condition[ 0 ] == "KV" ) {
+				return $primary;
+			} else if ( $condition[ 1 ] == "KV") {
+				return $secondary;
+			};
+
+		};
+
+		function setKva ( $condition, $primary, $secondary ) {
+
+			if ( $condition[ 0 ] == "KVA" ) {
+				return $primary;
+			} else if ( $condition[ 1 ] == "KVA") {
+				return $secondary;
+			};
+
 		};
 
 		function observer ( $variable, $fn ) {
