@@ -5,33 +5,60 @@
 		.module ( "soundapp" )
 		.directive ( "selectList", [ SelectList ] );
 
-	function SelectList ( ) {
+	function SelectList ( $rootScope ) {
 		return {
 			restrict: "A",
-			require: 'ngModel',
+			scope: {
+				selectList: '=',
+			},
 			link: linkSelect,
+			//controller: linkSelect,
 		};
 	};
 
-	var $NGMODEL = null;
-
 	function linkSelect ( $scope, $element, $attr, $ngModelCtrl ) {
-		$NGMODEL = $ngModelCtrl;	
-		$element.one ( "click", clickItemList );
+
+		var $value = $scope.selectList;
+		var $select = $attr.selectList;
+
+
+
+		//selectChildren ( $element, $value );
+		clickChildren ( $element );
+		//console.log ( "select : " + $value );
+		//console.log ( "select : " +  );
+		
 	};
 
-	function clickItemList ( ) {
-		angular
-			.element( this )
-			.children ( "> li" )
+	function selectChildren ( $element, $value ) {
+		$( $element.children ( " > *" ) ).filter ( function ( ) {
+			if ( $( this ).text ( ) == $value  ) {
+				$element.prepend ( this );
+			};
+		} );
+	};
+
+	function clickChildren ( $element ) {
+		$element
+			.children ( "> *" )
 			.on ( "click", function ( ) {
 				var $that = angular.element( this );
-				$NGMODEL.$setViewValue ( $that.text ( ) );
-				$NGMODEL.$render ( );
-				$that.parent ( ).prepend ( $that ).off ( "click" );
+				$that.parent ( ).prepend ( $that );
+
+				var $value = $that.text ( );
+
+				setParent ( $element, $value );
+
+
+
 				return false;
 			} );
 		return false;
 	};
+
+	function setParent ( $element, $value ) {
+		$element.attr ( "value", $value );
+	};
+
 
 } ) ( );

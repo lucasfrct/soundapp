@@ -12,20 +12,20 @@
 		$that.title = "Elétrica";
 		
 		$that.data = {
-			volts:[],
-			amperes: [],
-			ohms: [],
-			watts: [],
-			kV: [],
-			KVA: [],
+			tension: null,
+			amperage: null,
+			resistance: null,
+			power: null,
+			kv: null,
+			kva: null,
 		};
 
 		$that.buffer = {
-			primary: "",
-			secondary: "",
+			primary: "11",
+			secondary: "22",
 			selectPrimary: "V",
 			selectSecondary: "A",
-			type: "n",
+			type: "nominal",
 		};
 
 		observer ( "soundapp.buffer.primary", eventCalc );
@@ -34,12 +34,8 @@
 		observer ( "soundapp.buffer.selectSecondary", eventCalc );
 		observer ( "soundapp.buffer.type", eventCalc );
 
-		function load ( ) {
-
-		};
-
 		function eventCalc ( $value ) {
-			console.log ( "evento calc:" + $value );
+			//console.log ( "controller Observer : " + $value );
 			return false;
 		};
 
@@ -54,10 +50,13 @@
 
 		function observer ( $variable, $fn ) {
 			$scope.$watch ( $variable, function ( $newVal, $oldVal ) {
+
     			if ( typeof $fn == "function" ) {
     				$fn ( $newVal, $oldVal );
     			};
-  			});
+
+    			//return $newVal;
+  			} );
 		};
 
 	};

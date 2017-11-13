@@ -36,27 +36,27 @@
 					<div class="col-xs-6 row-4">
 						<input class="col-xs-12 row-3" ng-model="soundapp.buffer.primary" number >
 						<div class="line-dashed col-xs-12 row-1 select-eletric">
-						<ul class="select" select-list ng-model="soundapp.buffer.selectPrimary" >
-							<li>V</li>
-							<li>A</li>
-							<li>R</li>
-							<li>W</li>
-							<li>KV</li>
-							<li>KVA</li>
-						</ul>
+							<ul class="select" select-list="soundapp.buffer.selectPrimary" value="">
+								<li>V</li>
+								<li>A</li>
+								<li>R</li>
+								<li>W</li>
+								<li>KV</li>
+								<li>KVA</li>
+							</ul>
 						</div>
 					</div>
 					<div class="col-xs-6 row-4">
 						<input class="col-xs-12 row-3" ng-model="soundapp.buffer.secondary">
 						<div class="line-dashed col-xs-12 row-1 select-eletric">
-						<ul class="select" select-list ng-model="soundapp.buffer.selectSecondary" >
-							<li>A</li>
-							<li>V</li>
-							<li>R</li>
-							<li>W</li>
-							<li>KV</li>
-							<li>KVA</li>
-						</ul>
+							<ul class="select" select-list="soundapp.buffer.selectSecondary" value="">
+								<li>V</li>
+								<li>A</li>
+								<li>R</li>
+								<li>W</li>
+								<li>KV</li>
+								<li>KVA</li>
+							</ul>
 						</div>
 					</div>
 
@@ -67,37 +67,37 @@
 					
 					<div class="col-xs-4 row-2 btn btn-primary">
 						<span class="glyphicon glyphicon-flash"></span>
-						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="n">Nomi.
+						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="nominal">Nomi.
 					</div>
 					<div class="col-xs-4 row-2 btn btn-success">
 						<span class="glyphicon glyphicon-stats"></span>
-						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="r">RMS
+						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="rms">RMS
 					</div>
 					<div class="col-xs-4 row-2 btn btn-warning">
 						<span class="glyphicon glyphicon-open"></span>
-						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="p">Pico
+						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="pico">Pico
 					</div>
 
 				</div>
 				<div class="row-offset-1 row-4 grand-eletric">
 					
 					<div class="col-xs-4 row-2">
-						Tensão: 0000.00
+						Tensão: {{ soundapp.data.tension }}
 					</div>
 					<div class="col-xs-4 row-2">
-						Corrente: 0000.00
+						Corrente: {{ soundapp.data.amperage }}
 					</div>
 					<div class="col-xs-4 row-2">
-						Resistência: 0000.00
+						Resistência: {{ soundapp.data.resistance }}
 					</div>
 					<div class="col-xs-4 row-2">
-						Potência: 0000.00
+						Potência: {{ soundapp.data.power }}
 					</div>
 					<div class="col-xs-4 row-2">
-						KiloVolts: 0000.00
+						KiloVolts: {{ soundapp.data.kv }}
 					</div>
 					<div class="col-xs-4 row-2">
-						KVA: 0000.00
+						KVA: {{ soundapp.data.kva }}
 					</div>
 
 
