@@ -21,8 +21,8 @@
 		};
 
 		$that.buffer = {
-			primary: "11",
-			secondary: "22",
+			primary: "",
+			secondary: "",
 			selectPrimary: "V",
 			selectSecondary: "A",
 			type: "nominal",
@@ -35,7 +35,7 @@
 		observer ( "soundapp.buffer.type", eventCalc );
 
 		function eventCalc ( $value ) {
-			//console.log ( "controller Observer : " + $value );
+			console.log ( "controller Observer : " + $value );
 			return false;
 		};
 

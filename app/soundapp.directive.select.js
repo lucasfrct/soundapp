@@ -5,15 +5,14 @@
 		.module ( "soundapp" )
 		.directive ( "selectList", [ SelectList ] );
 
-	function SelectList ( $rootScope ) {
-		return {
-			restrict: "A",
+	function SelectList ( $rootScope ) { 
+		return { 
+			restrict: "A", 
 			scope: {
-				selectList: '=',
-			},
-			link: linkSelect,
-			//controller: linkSelect,
-		};
+				selectList: '=', 
+			}, 
+			link: linkSelect, //controller: linkSelect, 
+		}; 
 	};
 
 	function linkSelect ( $scope, $element, $attr, $ngModelCtrl ) {
@@ -23,8 +22,8 @@
 
 
 
-		//selectChildren ( $element, $value );
-		clickChildren ( $element );
+		selectChildren ( $element, $value );
+		clickChildren ($scope,  $element );
 		//console.log ( "select : " + $value );
 		//console.log ( "select : " +  );
 		
@@ -38,27 +37,22 @@
 		} );
 	};
 
-	function clickChildren ( $element ) {
+	function clickChildren ( $scope, $element ) {
 		$element
 			.children ( "> *" )
 			.on ( "click", function ( ) {
 				var $that = angular.element( this );
 				$that.parent ( ).prepend ( $that );
 
-				var $value = $that.text ( );
-
-				setParent ( $element, $value );
-
-
+				//set Var scope
+				$scope.selectList = $that.text ( );
+				$scope.$apply ( );
 
 				return false;
 			} );
 		return false;
 	};
 
-	function setParent ( $element, $value ) {
-		$element.attr ( "value", $value );
-	};
 
 
 } ) ( );
