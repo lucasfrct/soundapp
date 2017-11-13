@@ -1,7 +1,8 @@
 /*
-basiado em tela 16:9 com 12 colunas;
+baseado em tela 16:9 com 12 colunas;
 razão: 16 / 9 = 1,7777
 logo: 12 * 1.777 = 21.3;
+menor screnn = 320 x 480 
 aqui contém 21 grades horizontais seguindo a proporção de divisão de 16:9 => 12:21.3;
 
 */
@@ -13,107 +14,107 @@ aqui contém 21 grades horizontais seguindo a proporção de divisão de 16:9 =>
 
 .row-1 {
     height: calc( ( 100vh / 21 ) - 1px ) !important;
-    min-height: 19px;
+    min-height: 22px;
 }
 
 .row-2 {
     height: calc( ( 100vh / 21 ) * 2 - 1px ) !important;
-    min-height: 39px;
+    min-height: 45px;
 }
 
 .row-3 {
     height: calc( ( 100vh / 21 ) * 3 - 1px ) !important;
-    min-height: 59px;
+    min-height: 67px;
 }
 
 .row-4 {
     height: calc( ( 100vh / 21 ) * 4 - 1px ) !important;
-    min-height: 79px;
+    min-height: 90px;
 }
 
 .row-5 {
     height: calc( ( 100vh / 21 ) * 5 - 1px ) !important;
-    min-height: 99px;
+    min-height: 113px;
 }
 
 .row-6 {
     height: calc( ( 100vh / 21 ) * 6 - 1px ) !important;
-    min-height: 119px;
+    min-height: 136px;
 }
 
 .row-7 {
     height: calc( ( 100vh / 21 ) * 7 - 1px ) !important;
-    min-height: 139px;
+    min-height: 159px;
 }
 
 .row-8 {
     height: calc( ( 100vh / 21 ) * 8 - 1px ) !important;
-    min-height: 159px;
+    min-height: 182px;
 }
 
 .row-9 {
     height: calc( ( 100vh / 21 ) * 9 - 1px ) !important;
-    min-height: 179px;
+    min-height: 204px;
 }
 
 .row-10 {
     height: calc( ( 100vh / 21 ) * 10 - 1px ) !important;
-    min-height: 199px;
+    min-height: 228px;
 }
 
 .row-11 {
     height: calc( ( 100vh / 21 ) * 11 - 1px ) !important;
-    min-height: 219px;
+    min-height: 250px;
 }
 
 .row-12 {
     height: calc( ( 100vh / 21 ) * 12 - 1px ) !important;
-    min-height: 239px;
+    min-height: 273px;
 }
 
 .row-13 {
     height: calc( ( 100vh / 21 ) * 13 - 1px ) !important;
-    min-height: 259px;
+    min-height: 296px;
 }
 
 .row-14 {
     height: calc( ( 100vh / 21 ) * 14 - 1px ) !important;
-    min-height: 279px;
+    min-height: 320px;
 }
 
 .row-15 {
     height: calc( ( 100vh / 21 ) * 15 - 1px ) !important;
-    min-height: 299px;
+    min-height: 341px;
 }
 
 .row-16 {
     height: calc( ( 100vh / 21 ) * 16 - 1px ) !important;
-    min-height: 319px;
+    min-height: 364px;
 }
 
 .row-17 {
     height: calc( ( 100vh / 21 ) * 17 - 1px ) !important;
-    min-height: 339px;
+    min-height: 387px;
 }
 
 .row-18 {
     height: calc( ( 100vh / 21 ) * 18 - 1px ) !important;
-    min-height: 359px;
+    min-height: 410px;
 }
 
 .row-19 {
     height: calc( ( 100vh / 21 ) * 19 - 1px ) !important;
-    min-height: 379px;
+    min-height: 433px;
 }
 
 .row-20 {
     height: calc( ( 100vh / 21 ) * 20 - 1px ) !important;
-    min-height: 399px;
+    min-height: 456px;
 }
 
 .row-21 {
     height: calc( 100vh - 1px ) !important;
-    min-height: 419px;
+    min-height: 479px;
 }
 
 .row-offset-1 {
