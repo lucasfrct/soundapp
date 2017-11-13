@@ -17,34 +17,27 @@
 
 	function linkSelect ( $scope, $element, $attr, $ngModelCtrl ) {
 
-		var $value = $scope.selectList;
-		var $select = $attr.selectList;
-
-
-
-		selectChildren ( $element, $value );
-		clickChildren ($scope,  $element );
-		//console.log ( "select : " + $value );
-		//console.log ( "select : " +  );
+		selectChildrens ( $scope, $element );
+		clickChildrens ($scope,  $element );
 		
 	};
 
-	function selectChildren ( $element, $value ) {
+	function selectChildrens ( $scope, $element ) {
 		$( $element.children ( " > *" ) ).filter ( function ( ) {
-			if ( $( this ).text ( ) == $value  ) {
+			if ( $( this ).text ( ) == $scope.selectList  ) {
 				$element.prepend ( this );
 			};
 		} );
 	};
 
-	function clickChildren ( $scope, $element ) {
+	function clickChildrens ( $scope, $element ) {
 		$element
 			.children ( "> *" )
 			.on ( "click", function ( ) {
 				var $that = angular.element( this );
 				$that.parent ( ).prepend ( $that );
 
-				//set Var scope
+				//set variable in scope
 				$scope.selectList = $that.text ( );
 				$scope.$apply ( );
 
