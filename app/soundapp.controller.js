@@ -21,10 +21,10 @@
 		};
 
 		$that.buffer = {
-			primary: "",
-			secondary: "",
-			selectPrimary: "V",
-			selectSecondary: "A",
+			primary: 220,
+			secondary: 1,
+			selectPrimary: "A",
+			selectSecondary: "R",
 			type: "nominal",
 		};
 
@@ -39,14 +39,17 @@
 			var $condition = $buffer.selectPrimary + ":" + $buffer.selectSecondary;
 			$condition = $condition.split ( ':' );
 
-			$that.data.tension = setTencion ( $condition, $buffer.primary, $buffer.secondary );
+			/*$that.data.tension = setTencion ( $condition, $buffer.primary, $buffer.secondary );
 			$that.data.amperage = setAmperage ( $condition, $buffer.primary, $buffer.secondary );
-			$that.data.resistance = setResistance ( $condition, $buffer.primary, $buffer.secondary );
+			/*$that.data.resistance = setResistance ( $condition, $buffer.primary, $buffer.secondary );
 			$that.data.power = setPower ( $condition, $buffer.primary, $buffer.secondary );
 			$that.data.kv = setKv ( $condition, $buffer.primary, $buffer.secondary );
-			$that.data.kva = setKva ( $condition, $buffer.primary, $buffer.secondary );
+			$that.data.kva = setKva ( $condition, $buffer.primary, $buffer.secondary );*/
 
-			console.log ( "controller Observer Condition : " + $condition );
+			setData ( $condition, $buffer.primary, $buffer.secondary );
+
+            //console.log ( "controller Observer Condition : " + $condition );
+			console.log ( $that.data );
 			return false;
 		};
 
@@ -56,6 +59,8 @@
 				return $primary;
 			} else if ( $condition[ 1 ] == "V") {
 				return $secondary;
+			} else {
+				return "";
 			};
 
 		};
@@ -66,6 +71,8 @@
 				return $primary;
 			} else if ( $condition[ 1 ] == "A") {
 				return $secondary;
+			} else {
+				return "";
 			};
 
 		};
@@ -96,6 +103,12 @@
 				return $primary;
 			} else if ( $condition[ 1 ] == "KV") {
 				return $secondary;
+			} else if ( $condition[ 0 ] == "V" ) {
+				return ( $primary / 1000 )
+			} else if ( $condition[ 1 ] == "V" ) {
+				return ( $secondary / 1000 );
+			} else {
+				return ""
 			};
 
 		};
@@ -108,6 +121,53 @@
 				return $secondary;
 			};
 
+		};
+
+		function setData ( $condition, $primary, $secondary ) {
+			var $data = $that.data;
+
+			switch ( $condition.join ( ":" ) ) {
+				case "V:A":
+					$data.resistance = mathEletric.VAResistance ( $primary, $secondary );
+					$data.power = mathEletric.VAPower ( $primary, $secondary );
+					$data.kv = mathEletric.VKv ( $primary );
+					$data.kva = mathEletric.VAKva ( $primary, $secondary );
+					break;
+				case "V:R":
+					$data.amperage = mathEletric.VRAmperage ( $primary, $secondary );
+					$data.power = mathEletric.VRPower ( $primary, $secondary );
+					$data.kv = mathEletric.VKv ( $primary );
+					$data.kva = mathEletric.VRKva ( $primary, $secondary );
+					break;
+				case "V:W":
+					$data.amperage = mathEletric.VWAmperage ( $primary, $secondary );
+					$data.resistance = mathEletric.VWResistance ( $primary, $secondary );
+					$data.kv = mathEletric.VKv ( $primary );
+					$data.kva = mathEletric.VWKva ( $secondary );
+					break;
+				case "V:KV":
+					$data.kv = mathEletric.VKv ( $primary );
+					break;
+				case "V:KVA":
+					$data.amperage = mathEletric.VKvaAmperage ( $primary, $secondary );
+					$data.resistance = mathEletric.VKvaResistance ( $primary, $secondary );
+					$data.power = mathEletric.VKvaPower ( $secondary );
+					$data.kv = mathEletric.VKv ( $primary );
+					break;
+				case "A:V":
+					$data.resistance = mathEletric.VAResistance ( $secondary, $primary );
+					$data.power = mathEletric.VAPower ( $secondary, $primary );
+					$data.kv = mathEletric.VKv ( $secondary );
+					$data.kva = mathEletric.VAKva ( $secondary,$primary );
+					break;
+				case "A:R":
+					$data.tension = mathEletric.ARTension ( $primary, $secondary );
+					$data.power = mathEletric.ARPower ( $primary, $secondary );
+					break;
+
+				default:
+					"";			
+			};
 		};
 
 		function observer ( $variable, $fn ) {
