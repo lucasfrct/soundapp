@@ -8,6 +8,7 @@
 	function soundappController ( $scope ) {
 		
 		var $that = this;
+		var $ALGORITM = null;
 		
 		$that.title = "Elétrica";
 		
@@ -38,14 +39,9 @@
 			var $buffer = $that.buffer;
 			var $condition = $buffer.selectPrimary + ":" + $buffer.selectSecondary;
 
-			/*$that.data.tension = setTencion ( $condition, $buffer.primary, $buffer.secondary );
-			$that.data.amperage = setAmperage ( $condition, $buffer.primary, $buffer.secondary );
-			/*$that.data.resistance = setResistance ( $condition, $buffer.primary, $buffer.secondary );
-			$that.data.power = setPower ( $condition, $buffer.primary, $buffer.secondary );
-			$that.data.kv = setKv ( $condition, $buffer.primary, $buffer.secondary );
-			$that.data.kva = setKva ( $condition, $buffer.primary, $buffer.secondary );*/
-
 			setData ( $condition, $buffer.primary, $buffer.secondary );
+
+			setType ( $buffer.type );
 
             //console.log ( "controller Observer Condition : " + $condition );
 			console.log ( $that.data );
@@ -82,13 +78,19 @@
 					break;
 				case "V:KV":
 					$data.tension = $primary;
+					$data.amperage = "";
+					$data.resistance = "";
+					$data.power = "";
 					$data.kv = mathEletric.VKv ( $primary );
+					$data.kva = "";
 					break;
 				case "V:KVA":
+					$data.tension = $primary;
 					$data.amperage = mathEletric.VKvaAmperage ( $primary, $secondary );
 					$data.resistance = mathEletric.VKvaResistance ( $primary, $secondary );
 					$data.power = mathEletric.VKvaPower ( $secondary );
 					$data.kv = mathEletric.VKv ( $primary );
+					$data.kva = $secondary;
 					break;
 				case "A:V":
 					$data.tension = $secondary;
@@ -203,12 +205,20 @@
 					$data.kva = mathEletric.WKva ( $primary );
 					break;
 				case "W:KVA":
+					$data.tension = "";
+					$data.amperage = "";
+					$data.resistance = "";
 					$data.power = $primary;
+					$data.kv = "";
 					$data.kva = $secondary;
 					break;
 				case "KV:V":
 					$data.tension = $secondary;
+					$data.amperage = "";
+					$data.resistance = "";
+					$data.power = "";
 					$data.kv = $primary;
+					$data.kva = "";					
 				case "KV:A":
 					$data.tension = mathEletric.KvV ( $primary );
 					$data.amperage = $secondary;
@@ -283,6 +293,46 @@
 					break;
 				default:
 					"";			
+			};
+		};
+
+		function setType ( $type ) {
+
+			switch ( $type ) {
+				case "nominal":
+					break;
+				case "rms":
+					strategySet ( mathEletric.nominalToRms );
+					$that.data.tension = strategyParse ( $that.data.tension );
+					$that.data.amperage = strategyParse ( $that.data.amperage );
+					$that.data.resistance = strategyParse ( $that.data.resistance );
+					$that.data.power = strategyParse ( $that.data.power );
+					$that.data.kv = strategyParse ( $that.data.kv );
+					$that.data.kva = strategyParse ( $that.data.kva );
+					break;
+				case "pico":
+					strategySet ( mathEletric.nominalToPico );
+					$that.data.tension = strategyParse ( $that.data.tension );
+					$that.data.amperage = strategyParse ( $that.data.amperage );
+					$that.data.resistance = strategyParse ( $that.data.resistance );
+					$that.data.power = strategyParse ( $that.data.power );
+					$that.data.kv = strategyParse ( $that.data.kv );
+					$that.data.kva = strategyParse ( $that.data.kva );
+					break;
+			};
+
+		};
+
+		
+		function strategySet ( $algoritm ) {
+			if ( $.isFunction ( $algoritm ) ) {
+				$ALGORITM = $algoritm;
+			};
+		};
+
+		function strategyParse ( $value ) {
+			if ( $.isFunction ( $ALGORITM ) ) {
+				return $ALGORITM ( $value );
 			};
 		};
 
