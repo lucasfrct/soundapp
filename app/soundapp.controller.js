@@ -22,10 +22,10 @@
 		};
 
 		$that.buffer = {
-			primary: 100,
+			primary: 1,
 			secondary: 1,
-			selectPrimary: "V",
-			selectSecondary: "A",
+			selectPrimary: "A",
+			selectSecondary: "R",
 			type: "nominal",
 		};
 
