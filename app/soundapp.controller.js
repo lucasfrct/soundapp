@@ -22,10 +22,10 @@
 		};
 
 		$that.buffer = {
-			primary: 1,
-			secondary: 1,
-			selectPrimary: "A",
-			selectSecondary: "R",
+			primary: 220,
+			secondary: 2.5,
+			selectPrimary: "V",
+			selectSecondary: "A",
 			type: "nominal",
 		};
 
@@ -40,11 +40,10 @@
 			var $condition = $buffer.selectPrimary + ":" + $buffer.selectSecondary;
 
 			setData ( $condition, $buffer.primary, $buffer.secondary );
-
 			setType ( $buffer.type );
 
             //console.log ( "controller Observer Condition : " + $condition );
-			console.log ( $that.data );
+			//console.log ( $buffer.type  );
 			return false;
 		};
 
@@ -55,154 +54,154 @@
 				case "V:A":
 					$data.tension = $primary;
 					$data.amperage = $secondary;
-					$data.resistance = mathEletric.VAResistance ( $primary, $secondary );
-					$data.power = mathEletric.VAPower ( $primary, $secondary );
-					$data.kv = mathEletric.VKv ( $primary );
-					$data.kva = mathEletric.VAKva ( $primary, $secondary );
+					$data.resistance = _e.resistance.ta ( $primary, $secondary );
+					$data.power = _e.power.ta ( $primary, $secondary );
+					$data.kv = _e.kv.tension ( $primary );
+					$data.kva = _e.kva.ta ( $primary, $secondary );
 					break;
 				case "V:R":
 					$data.tension = $primary;
-					$data.amperage = mathEletric.VRAmperage ( $primary, $secondary );
+					$data.amperage = _e.amperage.tr ( $primary, $secondary );
 					$data.resistance = $secondary;
-					$data.power = mathEletric.VRPower ( $primary, $secondary );
-					$data.kv = mathEletric.VKv ( $primary );
-					$data.kva = mathEletric.VRKva ( $primary, $secondary );
+					$data.power = _e.power.tr ( $primary, $secondary );
+					$data.kv = _e.kv.tension ( $primary );
+					$data.kva = _e.kva.tr ( $primary, $secondary );
 					break;
 				case "V:W":
 					$data.tension = $primary;
-					$data.amperage = mathEletric.VWAmperage ( $primary, $secondary );
-					$data.resistance = mathEletric.VWResistance ( $primary, $secondary );
+					$data.amperage = _e.amperage.tp ( $primary, $secondary );
+					$data.resistance = _e.resistance.tp ( $primary, $secondary );
 					$data.power = $secondary;
-					$data.kv = mathEletric.VKv ( $primary );
-					$data.kva = mathEletric.VWKva ( $secondary );
+					$data.kv = _e.kv.tension ( $primary );
+					$data.kva = _e.kva.power ( $secondary );
 					break;
 				case "V:KV":
 					$data.tension = $primary;
 					$data.amperage = "";
 					$data.resistance = "";
 					$data.power = "";
-					$data.kv = mathEletric.VKv ( $primary );
+					$data.kv = _e.kv.tension ( $primary );
 					$data.kva = "";
 					break;
 				case "V:KVA":
 					$data.tension = $primary;
-					$data.amperage = mathEletric.VKvaAmperage ( $primary, $secondary );
-					$data.resistance = mathEletric.VKvaResistance ( $primary, $secondary );
-					$data.power = mathEletric.VKvaPower ( $secondary );
-					$data.kv = mathEletric.VKv ( $primary );
+					$data.amperage = _e.amperage.tkva ( $primary, $secondary );
+					$data.resistance = _e.resistance.tkva ( $primary, $secondary );
+					$data.power = _e.power.kva ( $secondary );
+					$data.kv = _e.kv.tension ( $primary );
 					$data.kva = $secondary;
 					break;
 				case "A:V":
 					$data.tension = $secondary;
 					$data.amperage = $primary;
-					$data.resistance = mathEletric.VAResistance ( $secondary, $primary );
-					$data.power = mathEletric.VAPower ( $secondary, $primary );
-					$data.kv = mathEletric.VKv ( $secondary );
-					$data.kva = mathEletric.VAKva ( $secondary, $primary );
+					$data.resistance = _e.resistance.ta ( $secondary, $primary );
+					$data.power = _e.power.ta ( $secondary, $primary );
+					$data.kv = _e.kv.tension ( $secondary );
+					$data.kva = _e.kva.ta ( $secondary, $primary );
 					break;
 				case "A:R":
-					$data.tension = mathEletric.ARTension ( $primary, $secondary );
+					$data.tension = _e.tension.ar ( $primary, $secondary );
 					$data.amperage = $primary;
 					$data.resistance = $secondary;
-					$data.power = mathEletric.ARPower ( $primary, $secondary );
-					$data.kv = mathEletric.VKv ( $data.tension );
-					$data.kva = mathEletric.ARKva ( $primary, $secondary );
+					$data.power = _e.power.ar ( $primary, $secondary );
+					$data.kv = _e.kv.ar ( $primary, $secondary );
+					$data.kva = _e.kva.ar ( $primary, $secondary );
 					break;
 				case "A:W":
-					$data.tension = mathEletric.AWTension ( $primary, $secondary );
+					$data.tension = _e.tension.ap ( $primary, $secondary );
 					$data.amperage = $primary;
-					$data.resistance = mathEletric.AWResistance ( $primary, $secondary );
+					$data.resistance = _e.resistance.ap ( $primary, $secondary );
 					$data.power = $secondary;
-					$data.kv = mathEletric.VKv ( $data.tension );
-					$data.kva = mathEletric.WKva ( $secondary );
+					$data.kv = _e.kv.ap ( $primary, $secondary );
+					$data.kva = _e.kva.power ( $secondary );
 					break;
 				case "A:KV":
-					$data.tension = mathEletric.KvV ( $secondary );
+					$data.tension = _e.tension.kv ( $secondary );
 					$data.amperage = $primary;
-					$data.resistance = mathEletric.VAResistance ( $data.tension, $primary );
-					$data.power = mathEletric.VAPower ( $data.tension, $primary );
+					$data.resistance = _e.resistance.ak ( $primary, $secondary );
+					$data.power = _e.power.ak ( $primary, $secondary );
 					$data.kv = $secondary;
-					$data.kva = mathEletric.VAKva ( $data.tension, $primary );
+					$data.kva = _e.kva.ak (  $primary, $secondary );
 					break;
 				case "A:KVA":
-					$data.tension = mathEletric.AKvaTension ( $primary, $secondary );
+					$data.tension = _e.tession.akva ( $primary, $secondary );
 					$data.amperage = $primary;
-					$data.resistance = mathEletric.AKvaResistance ( $primary, $secondary );
-					$data.power = mathEletric.KvaW ( $secondary );
-					$data.kv = mathEletric.VKv ( $data.tension );
+					$data.resistance = _e.reistance.akva ( $primary, $secondary );
+					$data.power = _e.power.kva ( $secondary );
+					$data.kv = _e.kv.akva ( $primary, $secondary );
 					$data.kva = $secondary;
 					break;
 				case "R:V":
 					$data.tension = $secondary;
-					$data.amperage = mathEletric.VRAmperage ( $secondary, $primary );
+					$data.amperage = _e.amperage.tr ( $secondary, $primary );
 					$data.resistance = $primary;
-					$data.power = mathEletric.VRPower ( $secondary, $primary );
-					$data.kv = mathEletric.VKv ( $data.tension  );
-					$data.kva = mathEletric.VRKva ( $secondary, $primary );
+					$data.power = _e.power.tr ( $secondary, $primary );
+					$data.kv = _e.kv.tension ( $secondary );
+					$data.kva = _e.kva.tr ( $secondary, $primary );
 					break;
 				case "R:A":
-					$data.tension = mathEletric.ARTension ( $secondary, $primary );
+					$data.tension = _e.tension.ar ( $secondary, $primary );
 					$data.amperage = $secondary;
 					$data.resistance = $primary;
-					$data.power = mathEletric.ARPower ( $secondary, $primary );
-					$data.kv = mathEletric.VKv ( $data.tension );
-					$data.kva = mathEletric.ARKva ( $secondary, $primary );
+					$data.power = _e.power.ar ( $secondary, $primary );
+					$data.kv = _e.kv.ar ( $secondary, $primary );
+					$data.kva = _e.kva.ar ( $secondary, $primary );
 					break;
 				case "R:W":
-					$data.tension = mathEletric.RWTension ( $primary, $secondary );
-					$data.amperage = mathEletric.RWAmperage ( $primary, $secondary );
+					$data.tension = _e.tension.rp ( $primary, $secondary );
+					$data.amperage = _e.amperage.rp ( $primary, $secondary );
 					$data.resistance = $primary;
 					$data.power = $secondary;
-					$data.kv = mathEletric.VKv ( $data.tension );
-					$data.kva = mathEletric.WKva ( $secondary );
+					$data.kv = _e.kv.rp ( $primary, $secondary );
+					$data.kva = _e.kva.power ( $secondary );
 					break;
 				case "R:KV":
-					$data.tension = mathEletric.KvV ( $secondary );
-					$data.amperage = mathEletric.VRAmperage ( $data.tension ,$primary );
+					$data.tension = _e.tension.kv ( $secondary );
+					$data.amperage = _e.amperage.rk ( $primary, $secondary );
 					$data.resistance = $primary;
-					$data.power = mathEletric.VRPower ( $data.tension, $primary );
+					$data.power = _e.power.rk ( $primary, $secondary );
 					$data.kv = $secondary;
-					$data.kva = mathEletric.VRKva ( $data.tension, $primary );
+					$data.kva = _r.kva.rk ( $primary, $secondary );
 					break;
 				case "R:KVA":
-					$data.tension = mathEletric.RKvaTension ( $primary, $secondary );
-					$data.amperage = mathEletric.RKvaAmperage ( $primary, $secondary );
+					$data.tension = _e.tension.rkva ( $primary, $secondary );
+					$data.amperage = _e.amperage.rkva( $primary, $secondary );
 					$data.resistance = $primary;
-					$data.power = mathEletric.KvaW ( $secondary );
-					$data.kv = mathEletric.VKv ( $data.tension);
+					$data.power = _e.power.kva ( $secondary );
+					$data.kv = _e.kv.rkva ( $primary, $secondary );
 					$data.kva = $secondary;
 					break;
 				case "W:V":
 					$data.tension = $secondary;
-					$data.amperage = mathEletric.VWAmperage ( $secondary, $primary );
-					$data.resistance = mathEletric.VWResistance ( $secondary, $primary ); 
+					$data.amperage = _e.amperage.tp ( $secondary, $primary );
+					$data.resistance = _e.resistance.tp ( $secondary, $primary ); 
 					$data.power = $primary;
-					$data.kv = mathEletric.VKv ( $secondary );
-					$data.kva = mathEletric.WKva( $primary );
+					$data.kv = _e.kv.tension ( $secondary );
+					$data.kva = _e.kva.power ( $primary );
 					break;
 				case "W:A":
-					$data.tension = mathEletric.AWTension ( $secondary, $primary );
+					$data.tension = _e.tension.ap ( $secondary, $primary );
 					$data.amperage = $secondary;
-					$data.resistance = mathEletric.AWResistance ( $secondary, $primary ); 
+					$data.resistance = _e.resistance.ap ( $secondary, $primary ); 
 					$data.power = $primary;
-					$data.kv = mathEletric.VKv ( $data.tension );
-					$data.kva = mathEletric.WKva ( $primary );
+					$data.kv = _e.kv.ap ( $secondary, $primary );
+					$data.kva = _e.kva.power ( $primary );
 					break;
 				case "W:R":
-					$data.tension = mathEletric.RWTension ( $secondary, $primary );
-					$data.amperage = mathEletric.RWAmperage ( $secondary, $primary );
+					$data.tension = _e.tension.rp ( $secondary, $primary );
+					$data.amperage = _e.amperage.rp ( $secondary, $primary );
 					$data.resistance = $secondary;
 					$data.power = $primary;
-					$data.kv = mathEletric.VKv ( $data.tension );
-					$data.kva = mathEletric.WKva ( $primary );
+					$data.kv = _e.kv.rp ( $secondary, $primary );
+					$data.kva = _e.kva.power ( $primary );
 					break;
 				case "W:KV":
-					$data.tension = mathEletric.KvV ( $secondary );
-					$data.amperage = mathEletric.VWAmperage ( $data.tension , $primary );
-					$data.resistance = mathEletric.VWResistance ( $data.tension, $primary ); 
+					$data.tension = _e.tension.kv ( $secondary );
+					$data.amperage = _e.amperage.pk ( $primary, $secondary );
+					$data.resistance = _e.resistance.pk ( $primary, $secondary ); 
 					$data.power = $primary;
 					$data.kv = $secondary;
-					$data.kva = mathEletric.WKva ( $primary );
+					$data.kva = _e.kva.power ( $primary );
 					break;
 				case "W:KVA":
 					$data.tension = "";
@@ -220,74 +219,74 @@
 					$data.kv = $primary;
 					$data.kva = "";					
 				case "KV:A":
-					$data.tension = mathEletric.KvV ( $primary );
+					$data.tension = _e.tension.kv ( $primary );
 					$data.amperage = $secondary;
-					$data.resistance = mathEletric.VAResistance ( $data.tension, $secondary ); 
-					$data.power = mathEletric.VAPower ( $data.tension, $secondary );
+					$data.resistance = _e.reisitance.ak ( $secondary, $primary ); 
+					$data.power = _e.power.ak ( $secondary, $primary );
 					$data.kv = $primary;
-					$data.kva = mathEletric.VAKva ( $data.tension, $secondary );
+					$data.kva = _e.kva.ak ( $secondary, $primary );
 					break;
 				case "KV:R":
-					$data.tension = mathEletric.KvV ( $primary );
-					$data.amperage = mathEletric.VRAmperage ( $data.tension, $secondary );
+					$data.tension = _e.tension.kv ( $primary );
+					$data.amperage = _e.amperage.rk ( $secondary, $primary );
 					$data.resistance =  $secondary;
-					$data.power = mathEletric.VRPower ( $data.tension, $secondary );
+					$data.power = _e.power.rk ( $secondary, $primary );
 					$data.kv = $primary;
-					$data.kva = mathEletric.VRKva ( $data.tension, $secondary );
+					$data.kva = _e.kva.rk ( $secondary, $primary );
 					break;
 				case "KV:W":
-					$data.tension = mathEletric.KvV ( $primary );
-					$data.amperage = mathEletric.VWAmperage ( $data.tension, $secondary );
-					$data.resistance = mathEletric.VWResistance ( $data.tension, $secondary );
+					$data.tension = _e.tension.kv ( $primary );
+					$data.amperage = _e.amperage.pk ( $secondary, $primary );
+					$data.resistance = _e.resistance.pk ( $secondary, $primary );
 					$data.power = $secondary;
 					$data.kv = $primary;
-					$data.kva = mathEletric.WKva ( $secondary );
+					$data.kva = _e.kva.power ( $secondary );
 					break;
 				case "KV:KVA":
-					$data.tension = mathEletric.KvV ( $primary );
-					$data.amperage = mathEletric.VKvaAmperage ( $data.tension, $secondary );
-					$data.resistance = mathEletric.VKvaResistance ( $data.tension, $secondary );
-					$data.power = mathEletric.KvaW ( $secondary );
+					$data.tension = _e.tension.kv ( $primary );
+					$data.amperage = _e.amperage.kkva ( $primary, $secondary );
+					$data.resistance = _e.resistance.kkva ( $primary, $secondary );
+					$data.power = _e.power.kva ( $secondary );
 					$data.kv = $primary;
 					$data.kva = $secondary;
 					break;
 				case "KVA:V":
 					$data.tension = $secondary;
-					$data.amperage = mathEletric.KvaVAmperage ( $primary, $secondary );
-					$data.resistance = mathEletric.KvaVResistance ( $primary, $secondary );
-					$data.power = mathEletric.KvaVPower ( $primary, $secondary );
-					$data.kv = mathEletric.KvaVKv ( $primary, $secondary );
+					$data.amperage = _e.amperage.tkva ( $secondary, $primary );
+					$data.resistance = _e.resistance.tkva ( $secondary, $primary );
+					$data.power = _e.power.kva ( $primary );
+					$data.kv = _e.kv.tension ( $secondary );
 					$data.kva = $primary;
 					break;
 				case "KVA:A":
-					$data.tension = mathEletric.KvaATension ( $primary, $secondary );
+					$data.tension = _e.tension.akva ( $secondary, $primary );
 					$data.amperage = $secondary;
-					$data.resistance = mathEletric.KvaAResistance ( $primary, $secondary );
-					$data.power = mathEletric.KvaAPower ( $primary, $secondary );
-					$data.kv = mathEletric.KvaAKv ( $primary, $secondary );
+					$data.resistance = _e.resistance.akva (  $secondary, $primary );
+					$data.power = _e.power.kva ( $primary );
+					$data.kv = _e.kv.akva ( $secondary, $primary );
 					$data.kva = $primary;
 					break;
 				case "KVA:R":
-					$data.tension = mathEletric.KvaRTension ( $primary, $secondary );
-					$data.amperage = mathEletric.KvaAAmperage ( $primary, $secondary );
+					$data.tension = _e.tension.rkva ( $secondary, $primary );
+					$data.amperage = _e.amperage.rkva ( $secondary, $primary );
 					$data.resistance = $secondary;
-					$data.power = mathEletric.KvaRPower ( $primary, $secondary );
-					$data.kv = mathEletric.KvaRKv ( $primary, $secondary );
+					$data.power = _e.power.kva ( $primary );
+					$data.kv = _e.kv.rkva ( $secondary, $primary );
 					$data.kva = $primary;
 					break;
 				case "KVA:W":
-					$data.tension = mathEletric.KvaWTension ( $primary, $secondary );
-					$data.amperage = mathEletric.KvaWAmperage ( $primary, $secondary );
-					$data.resistance = mathEletric.KvaWResistance ( $primary, $secondary );
+					$data.tension = "";
+					$data.amperage = "";
+					$data.resistance = "";
 					$data.power = $secondary;
-					$data.kv = mathEletric.KvaWKv ( $primary, $secondary );
+					$data.kv = "";
 					$data.kva = $primary;
 					break;
 				case "KVA:KV":
-					$data.tension = mathEletric.KvaKvTension ( $primary, $secondary );
-					$data.amperage = mathEletric.KvaKvAmperage ( $primary, $secondary );
-					$data.resistance = mathEletric.KvaKvResistance ( $primary, $secondary );
-					$data.power = mathEletric.KvaKvPower ( $primary, $secondary );
+					$data.tension = _e.tension.kv ( $secondary );
+					$data.amperage = _e.amperage.kkva ( $secondary, $primary );
+					$data.resistance = _e.resistance.kkva ( $secondary, $primary );
+					$data.power = _e.power.kva ( $primary );
 					$data.kv = $secondary;
 					$data.kva = $primary;
 					break;
@@ -302,7 +301,7 @@
 				case "nominal":
 					break;
 				case "rms":
-					strategySet ( mathEletric.nominalToRms );
+					strategySet ( _e.nominalToRms );
 					$that.data.tension = strategyParse ( $that.data.tension );
 					$that.data.amperage = strategyParse ( $that.data.amperage );
 					$that.data.resistance = strategyParse ( $that.data.resistance );
@@ -311,7 +310,7 @@
 					$that.data.kva = strategyParse ( $that.data.kva );
 					break;
 				case "pico":
-					strategySet ( mathEletric.nominalToPico );
+					strategySet ( _e.nominalToPico );
 					$that.data.tension = strategyParse ( $that.data.tension );
 					$that.data.amperage = strategyParse ( $that.data.amperage );
 					$that.data.resistance = strategyParse ( $that.data.resistance );
@@ -338,12 +337,9 @@
 
 		function observer ( $variable, $fn ) {
 			$scope.$watch ( $variable, function ( $newVal, $oldVal ) {
-
     			if ( typeof $fn == "function" ) {
     				$fn ( $newVal, $oldVal );
     			};
-
-    			//return $newVal;
   			} );
 		};
 

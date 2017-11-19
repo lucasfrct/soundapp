@@ -1,6 +1,7 @@
 body .window {
 	background-color: #009688;
 	color: #FFF;
+	padding: 0;
 }
 
 body .window header, body .window main, body .window footer, body .window input, body .window select {
@@ -13,6 +14,7 @@ body .window header, body .window .footer {
 
 body .window input, body .window select {
 	border: solid 0.1px rgba( 255, 255, 255, 0.1 );
+	font-size: 1.5em;
 }
 
 body .eletric h2 {
@@ -76,7 +78,7 @@ body .type-eletric > div {
 }
 
 body .type-eletric input {
-	opacity: 0.05;
+	opacity: 0;
 	margin: 0;
 	padding: 0;
 	left: 0;
