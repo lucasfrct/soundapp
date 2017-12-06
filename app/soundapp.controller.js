@@ -42,8 +42,6 @@
 			setData ( $condition, $buffer.primary, $buffer.secondary );
 			setType ( $buffer.type );
 
-            //console.log ( "controller Observer Condition : " + $condition );
-			//console.log ( $buffer.type  );
 			return false;
 		};
 
@@ -296,7 +294,6 @@
 		};
 
 		function setType ( $type ) {
-
 			switch ( $type ) {
 				case "nominal":
 					break;
@@ -319,7 +316,6 @@
 					$that.data.kva = strategyParse ( $that.data.kva );
 					break;
 			};
-
 		};
 
 		
@@ -337,7 +333,7 @@
 
 		function observer ( $variable, $fn ) {
 			$scope.$watch ( $variable, function ( $newVal, $oldVal ) {
-    			if ( typeof $fn == "function" ) {
+    			if ( $.isFunction( $fn ) ) {
     				$fn ( $newVal, $oldVal );
     			};
   			} );
