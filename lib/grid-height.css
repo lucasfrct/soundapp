@@ -1,15 +1,22 @@
 /*
 baseado em tela 16:9 com 12 colunas;
 razão: 16 / 9 = 1,7777
+razaõ 18 / 9 = 2
 logo: 12 * 1.777 = 21.3;
 menor screnn = 320 x 480 
 aqui contém 21 grades horizontais seguindo a proporção de divisão de 16:9 => 12:21.3;
 
 */
-.row-1, .row-2, .row-3, .row-4, .row-5, .row-6, .row-7, .row-8, .row-9, .row-10, .row-11, .row-12, .row-13, .row-14, .row-15, .row-16, .row-17, .row-18, .row-19, .row-20, .row-21 {
-	display: flow-root;
-    margin-top: 0.1px !important;
+
+/*.row-1, .row-2, .row-3, .row-4, .row-5, .row-6, .row-7, .row-8, .row-9, .row-10, .row-11, .row-12, .row-13, .row-14, .row-15, .row-16, .row-17, .row-18, .row-19, .row-20, .row-21 {
+*/
+body * [ class *= ".row-"], body * [ class *= ".row-offset-"] {
+    box-sizing: border-box;
+    display: flow-root;
     margin-bottom: 0.1px !important;
+    margin-top: 0.1px !important;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 .row-1 {

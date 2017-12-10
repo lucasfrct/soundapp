@@ -62,15 +62,15 @@
 				</div>
 				<div class="row-offset-1 row-2 type-eletric">
 					
-					<div class="col-xs-4 row-2 btn btn-primary">
+					<div class="col-xs-4 row-2 btn btn-primary" ng-class="{ mark: soundapp.buffer.type == 'nominal' } ">
 						<span class="glyphicon glyphicon-flash"></span>
 						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="nominal">Nomi.
 					</div>
-					<div class="col-xs-4 row-2 btn btn-success">
+					<div class="col-xs-4 row-2 btn btn-success"  ng-class="{ mark: soundapp.buffer.type == 'rms' } ">
 						<span class="glyphicon glyphicon-stats"></span>
 						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="rms">RMS
 					</div>
-					<div class="col-xs-4 row-2 btn btn-warning">
+					<div class="col-xs-4 row-2 btn btn-warning"  ng-class="{ mark: soundapp.buffer.type == 'pico' } ">
 						<span class="glyphicon glyphicon-open"></span>
 						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="pico">Pico
 					</div>
@@ -79,24 +79,29 @@
 				<div class="row-offset-1 row-4 grand-eletric">
 					
 					<div class="col-xs-4 row-2">
-						Tensão: {{ soundapp.data.tension }}
+						<span class="row-1">Tensão:</span>
+						{{ soundapp.data.tension }} V
 					</div>
 					<div class="col-xs-4 row-2">
-						Corrente: {{ soundapp.data.amperage }}
+						<span class="row-1">Corrente:</span>
+						{{ soundapp.data.amperage }} A
 					</div>
 					<div class="col-xs-4 row-2">
-						Resistência: {{ soundapp.data.resistance }}
+						<span class="row-1">Resistência:</span>
+						{{ soundapp.data.resistance }} R
 					</div>
 					<div class="col-xs-4 row-2">
-						Potência: {{ soundapp.data.power }}
+						<span class="row-1">Potência:</span>
+						{{ soundapp.data.power }} W
 					</div>
 					<div class="col-xs-4 row-2">
-						KiloVolts: {{ soundapp.data.kv }}
+						<span class="row-1">KiloVolts:</span>
+						{{ soundapp.data.kv }} Kv
 					</div>
 					<div class="col-xs-4 row-2">
-						KVA: {{ soundapp.data.kva }}
+						<span class="row-1">KVA:</span>
+						{{ soundapp.data.kva }} Kva
 					</div>
-
 
 				</div>
 			</main>

@@ -51,10 +51,10 @@ body .select-eletric li {
 	text-align: right;
 	border-bottom: dotted 1px rgba( 255, 255, 255, 0.2 );
 	opacity: 0.9 ;
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.1s ease-in-out;
+	-moz-transition: all 0.1s ease-in-out;
+	-o-transition: all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
 }
 
 body .select-eletric li:hover, body .select-eletric li:focus { 
@@ -99,4 +99,12 @@ body .grand-eletric > div {
 	text-align: center;
 	border-bottom: solid 1px #FFF;
 	padding-top: 0.6vh;
+}
+
+body .mark {
+	border-bottom: solid 3px #FFF;
+}
+
+body .mark:hover, body .mark:focus {
+	border-bottom: solid 3px #FFF;
 }
