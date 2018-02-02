@@ -108,3 +108,7 @@ body .mark {
 body .mark:hover, body .mark:focus {
 	border-bottom: solid 3px #FFF;
 }
+
+body select {
+	color: #000;
+}
