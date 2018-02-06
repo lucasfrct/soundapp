@@ -1,0 +1,22 @@
+body header h2 {
+	text-align: center;
+}
+
+body footer {
+
+}
+
+body footer nav ul {
+	text-align: center;
+}
+
+body footer nav ul li {
+	width: calc( ( 100% / 4 ) - 2.8px);
+	border: dashed 0.1px rgba( 255, 0 , 0, 0.3 );
+	display: inline-block;
+}
+
+body footer nav ul li a {
+	font-size: 0.7em;
+	text-align: left;
+}
