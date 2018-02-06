@@ -7,31 +7,67 @@
 		<link rel="stylesheet" type="text/css" href="vendor/css/soundapp.css">
 		<script type="text/javascript" src="lib/canvasjs.min.js"></script>
 	</head>
-	<body>
-		<header class="header col-xs-12 row-xs-3 line">
-			<nav class="col-xs-3 row-xs-3 line-dashed">Nav</nav>
-			<div class="col-xs-9 row-xs-3 line-dashed">
-				<h2>Eletric</h2>
+	<body class="">
+		<header class="header col-xs-12 row-xs-3 col-lg-offset-3 col-lg-6 background-color">
+			<div class="col-xs-12 row-xs-3 line-dashed">
+				<h2 class="text-white">Eletric</h2>
 			</div>
 		</header>
-		<main class="main col-xs-12 row-xs-18 line">
+		<main class="main col-xs-12 row-xs-18 col-lg-offset-3 col-lg-6 background-color">
+			<div class="line-dashed row-xs-offset-1 row-xs-5">
+				<div class="line-dashed col-xs-6 row-xs-3">
+					<input class="text-white" name="input-1" />
+				</div>
+				<div class="line-dashed col-xs-6 row-xs-3">
+					<input class="text-white" name="input-2" />
+				</div>
+				<div class="line-dashed col-xs-6 row-xs-2">
+					<select class="text-white">
+						<option>V</option>
+						<option>A</option>
+						<option>R</option>
+						<option>W</option>
+						<option>KV</option>
+						<option>KVA</option>
+					</select>
+				</div>
+				<div class="line-dashed col-xs-6 row-xs-2">
+					<select class="text-white">
+						<option>V</option>
+						<option selected>A</option>
+						<option>R</option>
+						<option>W</option>
+						<option>KV</option>
+						<option>KVA</option>
+					</select>
+				</div>
+			</div>
+			<div class="line-dashed row-xs-offset-1 row-xs-2 btns">
+				<div class="line-dashed col-xs-4 row-xs-2">
+					<input type="radio" name="type" data-name="Normal" checked>
+				</div>
+				<div class="line-dashed col-xs-4 row-xs-2">
+					<input type="radio" name="type" data-name="RMS">
+				</div>
+				<div class="line-dashed col-xs-4 row-xs-2">
+					<input type="radio" name="type" data-name="Pico">
+				</div>
+			</div>
 			<div class="line-dashed row-xs-offset-1 row-xs-4">
-				<div class="line-dashed col-xs-6 row-xs-3">Input</div>
-				<div class="line-dashed col-xs-6 row-xs-3">Input</div>
-				<div class="line-dashed col-xs-6 row-xs-1">select</div>
-				<div class="line-dashed col-xs-6 row-xs-1">select</div>
+				<ul class="output text-white">
+					<li class="row-xs-2 line-dashed">Tensão</li>
+					<li class="row-xs-2 line-dashed">Corrente</li>
+					<li class="row-xs-2 line-dashed">Resistência</li>
+					<li class="row-xs-2 line-dashed">Potência</li>
+					<li class="row-xs-2 line-dashed">KiloVolts</li>
+					<li class="row-xs-2 line-dashed">KVA</li>
+				</ul>
 			</div>
-			<div class="line-dashed row-xs-offset-1 row-xs-2">
-				<div class="line-dashed col-xs-4 row-xs-2">Type</div>
-				<div class="line-dashed col-xs-4 row-xs-2">Type</div>
-				<div class="line-dashed col-xs-4 row-xs-2">Type</div>
-			</div>
-			<div class="line-dashed row-xs-offset-1 row-xs-4">Results</div>
-			<div class="line-dashed row-xs-offset-1 row-xs-3">Output</div>
+			<div class="line-dashed row-xs-offset-1 row-xs-2 text-white">Output</div>
 		</main>
-		<footer class="footer col-xs-12 row-xs-3 line">
+		<footer class="footer col-xs-12 row-xs-3 col-lg-offset-3 col-lg-6 background-color">
 			<nav class="col-xs-12 row-xs-3">
-				<ul>
+				<ul class="text-white">
 					<li><a href="">Eletric</a></li>
 					<li><a href="">Ele. Accoustic</a></li>
 					<li><a href="">Accoustic</a></li>

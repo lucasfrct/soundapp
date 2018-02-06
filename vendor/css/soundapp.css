@@ -20,3 +20,103 @@ body footer nav ul li a {
 	font-size: 0.7em;
 	text-align: left;
 }
+
+body main input, body main select {
+	width: 80%;
+	text-align: center;
+	margin: 0 calc( 10% - 2px );
+	height: calc( ( ( 100vh / 24 ) * 2 ) - 8px );
+	margin-top: 4px;
+	background-color: transparent;
+	border: none;
+	outline: 0;
+}
+
+body main input {
+	margin-top:  6px;
+	height: calc( ( 100vh / 24 ) * 2 );
+	font-size: 2em;
+}
+
+body main input[type="radio"] {
+	margin: 0;
+	height: calc( ( ( 100vh / 24 ) * 2 ) - 24px );
+	width: calc( 100% - 20px );
+	position: relative;
+	font-size: 1.4em;
+	color:  #FFF;
+}
+
+body main input[type="radio"]::before {
+	content: attr(data-name);
+	display: inline-block;
+	position: relative;
+	width: inherit;
+	height: inherit;
+	background-color: inherit;
+	color: inherit;
+}
+
+body main input[type="radio"]:checked::before {
+	border-bottom: solid 4px #FFF;
+}
+
+body main select {
+	text-align: center;
+	background-color: #009688;
+}
+
+body main select option {
+	background-color: #009688;
+}
+
+body .background-color {
+	background-color: #009688;
+}
+
+body .background-contrast {
+	background-color: #009688;	
+}
+
+.text-primary {
+
+}
+
+.text-secondary {
+
+}
+
+body .text-white {
+	color: #FFF;
+}
+
+.text-black {
+
+}
+
+.background-contrast {
+
+}
+
+.output {
+
+}
+
+body .output li {
+	display: inline-block;
+	width: calc( ( 100% / 3) - 3px );
+	font-size: 1em;
+	text-align: center;
+}
+
+body .btns input[data-name="Normal"] {
+	background-color: #F44336;
+}
+
+body .btns input[data-name="RMS"] {
+	background-color: #0D47A1;
+}
+
+body .btns input[data-name="Pico"] {
+	background-color: #FFEB3B;
+}
