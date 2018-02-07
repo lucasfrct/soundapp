@@ -1,114 +1,122 @@
-body .window {
-	background-color: #009688;
-	color: #FFF;
-	padding: 0;
-}
-
-body .window header, body .window main, body .window footer, body .window input, body .window select {
-	background-color: transparent;
-}
-
-body .window header, body .window .footer {
-	background-color: #00796B;
-}
-
-body .window input, body .window select {
-	border: solid 0.1px rgba( 255, 255, 255, 0.1 );
-	font-size: 1.5em;
-}
-
-body .eletric h2 {
-	margin: 0 !important;
+body header h2 {
 	text-align: center;
-	padding: 1vh;
 }
 
-body .select-eletric {
-	display: block;
-	z-index: 10;
-	background-color: #004D40;
-	margin: 0;
-	padding: 0;
+body footer {
+
 }
 
-body .select-eletric ul {
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	height: inherit;
+body footer nav ul {
+	text-align: center;
 }
 
-body .select-eletric ul:hover, body .select-eletric ul:focus {
- 	height: auto !important;
-}
-
-body .select-eletric li {
-	background-color: #004D40;
-	width: 100%;
-	height: inherit;
+body footer nav ul li {
+	width: calc( ( 100% / 4 ) - 2.8px);
+	border: dashed 0.1px rgba( 255, 0 , 0, 0.3 );
 	display: inline-block;
-	padding: 0.15em 1em;
-	text-align: right;
-	border-bottom: dotted 1px rgba( 255, 255, 255, 0.2 );
-	opacity: 0.9 ;
-	-webkit-transition: all 0.1s ease-in-out;
-	-moz-transition: all 0.1s ease-in-out;
-	-o-transition: all 0.1s ease-in-out;
-	transition: all 0.1s ease-in-out;
 }
 
-body .select-eletric li:hover, body .select-eletric li:focus { 
-	background-color: #00695C;
-	padding: 0.3em 1.1em;
-	-webkit-transform: scale( 1.02 );
-	-moz-transform: scale( 1.02 );
-	-o-transform: scale( 1.02 );
-	-ms-transform: scale( 1.02 );
-	transform: scale( 1.02 );
-	z-index: 1;
-	position: relative;
+body footer nav ul li a {
+	font-size: 0.7em;
+	text-align: left;
 }
 
-body .type-eletric {
-}
-
-body .type-eletric > div {
-	font-size: 1.2em;
-	padding-top: 2vh;
-}
-
-body .type-eletric input {
-	opacity: 0;
-	margin: 0;
-	padding: 0;
-	left: 0;
-	top: 0;
-	position: absolute;
-}
-
-body .type-eletric .btn {
-	border-radius: unset;
-}
-
-body .grand-eletric {
-	background-color: rgba( 0, 0, 0, 0.05 );
-
-}
-
-body .grand-eletric > div {
+body main input, body main select {
+	width: 80%;
 	text-align: center;
-	border-bottom: solid 1px #FFF;
-	padding-top: 0.6vh;
+	margin: 0 calc( 10% - 2px );
+	height: calc( ( ( 100vh / 24 ) * 2 ) - 8px );
+	margin-top: 4px;
+	background-color: transparent;
+	border: none;
+	outline: 0;
 }
 
-body .mark {
-	border-bottom: solid 3px #FFF;
+body main input {
+	margin-top:  6px;
+	height: calc( ( 100vh / 24 ) * 2 );
+	font-size: 2em;
 }
 
-body .mark:hover, body .mark:focus {
-	border-bottom: solid 3px #FFF;
+body main input[type="radio"] {
+	margin: 0;
+	height: calc( ( ( 100vh / 24 ) * 2 ) - 24px );
+	width: calc( 100% - 20px );
+	position: relative;
+	font-size: 1.4em;
+	color:  #FFF;
 }
 
-body select {
-	color: #000;
+body main input[type="radio"]::before {
+	content: attr(data-name);
+	display: inline-block;
+	position: relative;
+	width: inherit;
+	height: inherit;
+	background-color: inherit;
+	color: inherit;
+}
+
+body main input[type="radio"]:checked::before {
+	border-bottom: solid 4px #FFF;
+}
+
+body main select {
+	text-align: center;
+	background-color: #009688;
+}
+
+body main select option {
+	background-color: #009688;
+}
+
+body .background-color {
+	background-color: #009688;
+}
+
+body .background-contrast {
+	background-color: #009688;	
+}
+
+.text-primary {
+
+}
+
+.text-secondary {
+
+}
+
+body .text-white {
+	color: #FFF;
+}
+
+.text-black {
+
+}
+
+.background-contrast {
+
+}
+
+.output {
+
+}
+
+body .output li {
+	display: inline-block;
+	width: calc( ( 100% / 3) - 3px );
+	font-size: 1em;
+	text-align: center;
+}
+
+body .btns input[data-name="Normal"] {
+	background-color: #F44336;
+}
+
+body .btns input[data-name="RMS"] {
+	background-color: #0D47A1;
+}
+
+body .btns input[data-name="Pico"] {
+	background-color: #FFEB3B;
 }
