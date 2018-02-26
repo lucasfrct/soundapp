@@ -3,71 +3,56 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="lib/components.css">
+		<link rel="stylesheet" type="text/css" href="lib/components-all.css">
 		<link rel="stylesheet" type="text/css" href="vendor/css/soundapp.css">
-		<script type="text/javascript" src="lib/canvasjs.min.js"></script>
 	</head>
 	<body class="">
-		<header class="header col-xs-12 row-xs-3 col-lg-offset-3 col-lg-6 background-color">
-			<div class="col-xs-12 row-xs-3 line-dashed">
-				<h2 class="text-white">Eletric</h2>
-			</div>
+		<header class="col-xs-12 row-xs-1 background-secondary">
 		</header>
-		<main class="main col-xs-12 row-xs-18 col-lg-offset-3 col-lg-6 background-color">
-			<div class="line-dashed row-xs-offset-1 row-xs-5">
-				<div class="line-dashed col-xs-6 row-xs-3">
-					<input class="text-white" name="input-1" />
+		<main class="main col-xs-12 row-xs-21 col-lg-offset-3 col-lg-6 background-color">
+			<section class="col-xs-12 row-xs-7">
+				<div class="config col-xs-12 row-xs-1">
+					<div class="col-xs-4 row-xs-1">Rad</div>
+					<div class="col-xs-8 row-xs-1 text-right">Con</div>
 				</div>
-				<div class="line-dashed col-xs-6 row-xs-3">
-					<input class="text-white" name="input-2" />
+				<div class="display col-xs-12 row-xs-3 text-right">220V & 63A</div>
+				<div class="result col-xs-12 row-xs-2 text-center">
+					<div class="col-xs-3">000.0000 V</div>
+					<div class="col-xs-3">000.0000 A</div>
+					<div class="col-xs-3">000.0000 R</div>
+					<div class="col-xs-3">000.0000 W</div>
 				</div>
-				<div class="line-dashed col-xs-6 row-xs-2">
-					<select class="text-white">
-						<option>V</option>
-						<option>A</option>
-						<option>R</option>
-						<option>W</option>
-						<option>KV</option>
-						<option>KVA</option>
-					</select>
+			</section>
+			<section class="col-xs-12 row-xs-14">
+				<div class="col-xs-12 row-xs-14 teclado">
+					<div class="numbers col-xs-9">
+						<button>7</button>
+						<button>8</button>
+						<button>9</button>
+						<button>4</button>
+						<button>5</button>
+						<button>6</button>
+						<button>1</button>
+						<button>2</button>
+						<button>3</button>
+						<button>,</button>
+						<button>0</button>
+						<button>=</button>
+					</div>
+					<div class="operators col-xs-3">
+						<button>DEL</button>
+						<button>&</button>
+						<button>V</button>
+						<button>A</button>
+						<button>R</button>
+						<button>W</button>
+					</div>
 				</div>
-				<div class="line-dashed col-xs-6 row-xs-2">
-					<select class="text-white">
-						<option>V</option>
-						<option selected>A</option>
-						<option>R</option>
-						<option>W</option>
-						<option>KV</option>
-						<option>KVA</option>
-					</select>
-				</div>
-			</div>
-			<div class="line-dashed row-xs-offset-1 row-xs-2 btns">
-				<div class="line-dashed col-xs-4 row-xs-2">
-					<input type="radio" name="type" data-name="Normal" checked>
-				</div>
-				<div class="line-dashed col-xs-4 row-xs-2">
-					<input type="radio" name="type" data-name="RMS">
-				</div>
-				<div class="line-dashed col-xs-4 row-xs-2">
-					<input type="radio" name="type" data-name="Pico">
-				</div>
-			</div>
-			<div class="line-dashed row-xs-offset-1 row-xs-4">
-				<ul class="output text-white">
-					<li class="row-xs-2 line-dashed">Tensão</li>
-					<li class="row-xs-2 line-dashed">Corrente</li>
-					<li class="row-xs-2 line-dashed">Resistência</li>
-					<li class="row-xs-2 line-dashed">Potência</li>
-					<li class="row-xs-2 line-dashed">KiloVolts</li>
-					<li class="row-xs-2 line-dashed">KVA</li>
-				</ul>
-			</div>
-			<div class="line-dashed row-xs-offset-1 row-xs-2 text-white">Output</div>
+			</section>
 		</main>
-		<footer class="footer col-xs-12 row-xs-3 col-lg-offset-3 col-lg-6 background-color">
+		<footer class="footer col-xs-12 row-xs-2 background-secondary">
 			<nav class="col-xs-12 row-xs-3">
-				<ul class="text-white">
+				<ul class="">
 					<li><a href="">Eletric</a></li>
 					<li><a href="">Ele. Accoustic</a></li>
 					<li><a href="">Accoustic</a></li>

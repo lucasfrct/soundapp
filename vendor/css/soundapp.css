@@ -1,122 +1,94 @@
-body header h2 {
-	text-align: center;
+html .background-primary {
+	background-color: #009688;
+	color: #FAFAFA;
 }
 
-body footer {
+.background-secondary {
+	background-color: #00897B;
+	color: #FAFAFA;
+}
+
+body .preloader {
+	color: #009688;
+}
+
+body div.config {
 
 }
 
-body footer nav ul {
+body div.display {
+	font-size: 4em;
+	line-height: 1.1em;
+	padding: 0;
+}
+
+body div.result {
+
+}
+
+
+body .teclado {
 	text-align: center;
+
+}
+
+body .teclado div.numbers {
+	background-color: #262626;
+}
+
+body .teclado div.numbers button, 
+body .teclado div.operators button {
+	background-color: transparent;
+	color: #FAFAFA;
+	border: none;
+	outline: 0;
+	position: relative;
+}
+
+body .teclado div.numbers button:focus::before, 
+body .teclado div.operators button:focus::before {
+	content: "";
+	width: 5px;
+	height: 5px;
+	left: calc( 50% - 2.5px );
+	top: calc( 50% - 2.5px );
+	display: block;
+	border: solid 1px #F00;
+	position: absolute;
+}
+
+body .teclado div.numbers button {
+	width: calc( ( 100% / 3 ) - 5px );
+	margin: 1px 0;
+	padding: 0;
+	padding-top: calc( ( ( ( 100vh / 24 ) * 2.9 ) - 1em ) / 2 );
+	padding-bottom: calc( ( ( ( 100vh / 24 ) * 2.9 ) - 1em ) / 2 );
+	font-size: 3em;
+	background-color: transparent;
+	color: #FAFAFA;
+
+}
+
+body .teclado div.operators {
+	background-color: #424242;
+}
+
+body .teclado div.operators button {
+	width: calc( 100%  - 2px );
+	margin: 1px 0;
+	padding: 0;
+	padding-top: calc( ( ( ( 100vh / 24 ) * 1.769 ) - 1em ) / 2 );
+	padding-bottom: calc( ( ( ( 100vh / 24 ) * 1.769 ) - 1em ) / 2 );
+	font-size: 3em;
+	background-color: transparent;
+	color: #FAFAFA;
 }
 
 body footer nav ul li {
-	width: calc( ( 100% / 4 ) - 2.8px);
-	border: dashed 0.1px rgba( 255, 0 , 0, 0.3 );
-	display: inline-block;
+	width: calc( ( 100% / 4 ) - 5px );
 }
 
 body footer nav ul li a {
 	font-size: 0.7em;
-	text-align: left;
-}
-
-body main input, body main select {
-	width: 80%;
 	text-align: center;
-	margin: 0 calc( 10% - 2px );
-	height: calc( ( ( 100vh / 24 ) * 2 ) - 8px );
-	margin-top: 4px;
-	background-color: transparent;
-	border: none;
-	outline: 0;
-}
-
-body main input {
-	margin-top:  6px;
-	height: calc( ( 100vh / 24 ) * 2 );
-	font-size: 2em;
-}
-
-body main input[type="radio"] {
-	margin: 0;
-	height: calc( ( ( 100vh / 24 ) * 2 ) - 24px );
-	width: calc( 100% - 20px );
-	position: relative;
-	font-size: 1.4em;
-	color:  #FFF;
-}
-
-body main input[type="radio"]::before {
-	content: attr(data-name);
-	display: inline-block;
-	position: relative;
-	width: inherit;
-	height: inherit;
-	background-color: inherit;
-	color: inherit;
-}
-
-body main input[type="radio"]:checked::before {
-	border-bottom: solid 4px #FFF;
-}
-
-body main select {
-	text-align: center;
-	background-color: #009688;
-}
-
-body main select option {
-	background-color: #009688;
-}
-
-body .background-color {
-	background-color: #009688;
-}
-
-body .background-contrast {
-	background-color: #009688;	
-}
-
-.text-primary {
-
-}
-
-.text-secondary {
-
-}
-
-body .text-white {
-	color: #FFF;
-}
-
-.text-black {
-
-}
-
-.background-contrast {
-
-}
-
-.output {
-
-}
-
-body .output li {
-	display: inline-block;
-	width: calc( ( 100% / 3) - 3px );
-	font-size: 1em;
-	text-align: center;
-}
-
-body .btns input[data-name="Normal"] {
-	background-color: #F44336;
-}
-
-body .btns input[data-name="RMS"] {
-	background-color: #0D47A1;
-}
-
-body .btns input[data-name="Pico"] {
-	background-color: #FFEB3B;
 }

@@ -1,124 +1,22 @@
 <!Doctype html>
-<html ng-app="soundapp" lang="pt-br" >
+<html lang="pt-br">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="lib/grid-height.css">
+		<meta http-equiv="refresh" content="3, eletric.html">
+		<meta name="viewport" content="width=device-width, height=device-heoght, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="lib/components-all.css">
 		<link rel="stylesheet" type="text/css" href="vendor/css/soundapp.css">
-		<script type="text/javascript" src="lib/angular.min.js"></script>
-		<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
-		<script type="text/javascript" src="lib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="lib/mathSound.js"></script>
-		<script type="text/javascript" src="lib/mathEletric.js"></script>
-		<script type="text/javascript" src="lib/canvasjs.min.js"></script>
-		<script type="text/javascript" src="app/soundapp.module.js"></script>
-		<script type="text/javascript" src="app/soundapp.directive.select.js"></script>
-		<script type="text/javascript" src="app/soundapp.directive.number.js"></script>
-		<script type="text/javascript" src="app/soundapp.controller.js"></script>
-		<script type="text/javascript" src="app/soundapp.controller.chart.js"></script>
-		<script type="text/javascript" src="vendor/js/soundapp.js"></script>
 	</head>
-	<body ng-controller ="soundappController as soundapp">
-		<div class="window col-xs-12 col-md-offset-4 col-md-4 row-21">
-			<header class="header col-xs-12 row-2 line">
-				<nav class="col-xs-3 row-2 line-dashed">
-					<span class="glyphicon glyphicon-menu-hamburger" style="font-size: 2.8em;"></span>	
-				</nav>
-			</header>
-			<main class="main col-xs-12 row-17 line">
-				<div class="row-offset-1 row-2 eletric">
-					<h2>{{ soundapp.title }}</h2>
-				</div>
-				<div class="row-offset-1 row-4">
-					
-					<div class="col-xs-6 row-4">
-						<input class="col-xs-12 row-3" ng-model="soundapp.buffer.primary" number >
-						<div class="line-dashed col-xs-12 row-1 select-eletric">
-							<!--ul class="select" select-list="soundapp.buffer.selectPrimary" value="">
-								<li>V</li>
-								<li>A</li>
-								<li>R</li>
-								<li>W</li>
-								<li>KV</li>
-								<li>KVA</li>
-							</ul-->
-							<select ng-model="soundapp.buffer.selectPrimary" >
-								<option value="V">V</option>
-								<option value="A">A</option>
-								<option value="R">R</option>
-								<option value="W">W</option>
-								<option value="KV">KV</option>
-								<option value="KVA">KVA</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-xs-6 row-4">
-						<input class="col-xs-12 row-3" ng-model="soundapp.buffer.secondary">
-						<div class="line-dashed col-xs-12 row-1 select-eletric">
-							<ul class="select" select-list="soundapp.buffer.selectSecondary" value="">
-								<li>V</li>
-								<li>A</li>
-								<li>R</li>
-								<li>W</li>
-								<li>KV</li>
-								<li>KVA</li>
-							</ul>
-						</div>
-					</div>
-
-				</div>
-				<div class="row-offset-1 row-2 type-eletric">
-					
-					<div class="col-xs-4 row-2 btn btn-primary" ng-class="{ mark: soundapp.buffer.type == 'nominal' } ">
-						<span class="glyphicon glyphicon-flash"></span>
-						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="nominal">Nomi.
-					</div>
-					<div class="col-xs-4 row-2 btn btn-success"  ng-class="{ mark: soundapp.buffer.type == 'rms' } ">
-						<span class="glyphicon glyphicon-stats"></span>
-						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="rms">RMS
-					</div>
-					<div class="col-xs-4 row-2 btn btn-warning"  ng-class="{ mark: soundapp.buffer.type == 'pico' } ">
-						<span class="glyphicon glyphicon-open"></span>
-						<input class="row-2 col-xs-12" type="radio" name="type" ng-model="soundapp.buffer.type" value="pico">Pico
-					</div>
-
-				</div>
-				<div class="row-offset-1 row-4 grand-eletric">
-					
-					<div class="col-xs-4 row-2">
-						<span class="row-1">Tensão:</span>
-						{{ soundapp.data.tension }} V
-					</div>
-					<div class="col-xs-4 row-2">
-						<span class="row-1">Corrente:</span>
-						{{ soundapp.data.amperage }} A
-					</div>
-					<div class="col-xs-4 row-2">
-						<span class="row-1">Resistência:</span>
-						{{ soundapp.data.resistance }} R
-					</div>
-					<div class="col-xs-4 row-2">
-						<span class="row-1">Potência:</span>
-						{{ soundapp.data.power }} W
-					</div>
-					<div class="col-xs-4 row-2">
-						<span class="row-1">KiloVolts:</span>
-						{{ soundapp.data.kv }} Kv
-					</div>
-					<div class="col-xs-4 row-2">
-						<span class="row-1">KVA:</span>
-						{{ soundapp.data.kva }} Kva
-					</div>
-
-				</div>
-			</main>
-			<footer class="footer col-xs-12 row-2 line">
-				<div class="line-dashed col-xs-3 row-2">EL.</div>
-				<div class="line-dashed col-xs-3 row-2">E.A.</div>
-				<div class="line-dashed col-xs-3 row-2">AC.</div>
-				<div class="line-dashed col-xs-3 row-2">CO.</div>
-			</footer>
-		</div>
+	<body class="background-primary">
+		<header class="col-xs-12 row-xs-4">
+		</header>
+		<main class="col-xs-12 row-xs-16">
+			<div class="col-xs-12 row-xs-offset-5 row-xs-3">
+				<h1 class="text-center">Soundapp</h1>
+			</div>
+		</main>
+		<footer class="col-xs-12 row-xs-4">
+			<span class="preloader" data-animation="preloader"></span>
+		</footer>
 	</body>
 </html>
