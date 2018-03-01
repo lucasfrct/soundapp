@@ -1,6 +1,6 @@
 
 var $dom = { };
-var $memory = { history: [ ], recent: [ ], number: [ ], concat: null };
+var $memory = { history: [ ], recent: [ ], number: [ ], units: [ ], index: 0 };
 
 ( function ( ) {
 	"use strict";
@@ -45,27 +45,55 @@ var $memory = { history: [ ], recent: [ ], number: [ ], concat: null };
 
 } ) ( );
 
-$dom.key ( function ( $key ) {
+$dom.key ( function ( $key = "" ) {
 	
-	if ( !__clean ( $key ) ) {	
+	if ( !__keyDel ( $key ) ) {	
 		$memory.recent.push ( $key );
 	};
-
 		
 	$dom.display ( $memory.recent.join ( "" ) );
+	__checkUnits ( $key );
 
 } );
 
-function __clean ( $key ) {
+function __keyDel ( $key = "" ) {
 	var $del = false;
 	if ( "del" == $key && !$del ) {
 		$memory.recent.pop ( );
+		
+		if ( ( $memory.recent.length - 1) >= $memory.index) {
+			$memory.number.pop ( );
+			$memory.units.pop ( );
+		}
+
 		$del = true;
 	};
 
 	return $del;
 };
 
-function __checkBlock ( $key ) {
-	return ( "&" == $key.trim ( ) ) ? true : false;
-};
+function __checkUnits ( $key = "" ) {
+	switch ( $key ) {
+		case "V":
+			__captureNumber ( $memory.recent, $key );
+			break;
+		case "A":
+			__captureNumber ( $memory.recent, $key );
+			break;
+	}
+	console.log ( $memory.units );
+	console.log ( $memory.number );
+}
+
+function __captureNumber ( $array = [ ], $key = "" ) {
+
+	$array.map ( function ( $item, $index ) {
+		if ( $item == $key && $index > $memory.index && $item ) {
+			
+			$memory.units.push ( $key );
+			$memory.number.push ( $array.slice ( $memory.index, $index ).join ( "" ).replace(/[^0-9\.]+/g, '') );
+			$memory.index = $index;
+
+		};
+	} );
+}
